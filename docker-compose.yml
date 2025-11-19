@@ -1,0 +1,70 @@
+version: '3.8'
+
+services:
+  # Sovity EDC Frontend Application
+  sovity-edc-frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL:-http://localhost:11002}
+        - NEXT_PUBLIC_MANAGEMENT_API_PATH=${NEXT_PUBLIC_MANAGEMENT_API_PATH:-/api/management}
+        - NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY:-ApiKeyDefaultDockerSecret1234}
+    image: sovity-edc-frontend:latest
+    container_name: sovity-edc-frontend
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - NEXT_PUBLIC_API_BASE_URL=${NEXT_PUBLIC_API_BASE_URL:-http://localhost:11002}
+      - NEXT_PUBLIC_MANAGEMENT_API_PATH=${NEXT_PUBLIC_MANAGEMENT_API_PATH:-/api/management}
+      - NEXT_PUBLIC_API_KEY=${NEXT_PUBLIC_API_KEY:-ApiKeyDefaultDockerSecret1234}
+    networks:
+      - edc-network
+    healthcheck:
+      test: ["CMD", "node", "-e", "require('http').get('http://localhost:3000', (r) => {process.exit(r.statusCode === 200 ? 0 : 1)})"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    depends_on:
+      - edc-connector
+    labels:
+      - "com.sovity.app=edc-frontend"
+      - "com.sovity.description=Sovity EDC Connector Frontend"
+
+  # Sovity EDC Connector (optional - uncomment if you want to run it with docker-compose)
+  # This assumes you have access to the EDC connector image
+  edc-connector:
+    image: ghcr.io/sovity/edc-ce:latest
+    container_name: sovity-edc-connector
+    restart: unless-stopped
+    ports:
+      - "11002:11002"
+      - "11003:11003"
+    environment:
+      - EDC_KEYSTORE=${EDC_KEYSTORE:-/app/cert.pfx}
+      - EDC_KEYSTORE_PASSWORD=${EDC_KEYSTORE_PASSWORD:-password}
+      - EDC_API_AUTH_KEY=${NEXT_PUBLIC_API_KEY:-ApiKeyDefaultDockerSecret1234}
+    networks:
+      - edc-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11002/api/check/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 60s
+    labels:
+      - "com.sovity.app=edc-connector"
+      - "com.sovity.description=Sovity EDC Connector Backend"
+
+networks:
+  edc-network:
+    driver: bridge
+    name: sovity-edc-network
+
+# Optional: Volumes for persistence
+# volumes:
+#   edc-data:
+#     name: sovity-edc-data

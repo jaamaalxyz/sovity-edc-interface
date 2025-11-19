@@ -1,0 +1,57 @@
+# Dependencies
+node_modules/
+
+# Build outputs
+.next/
+out/
+dist/
+build/
+coverage/
+
+# Environment files
+.env*
+
+# Logs
+*.log
+
+# Cache directories
+.cache/
+.parcel-cache/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+
+# Platform
+.platform/
+
+# SSL certificates
+src/config/ssl-certificate/
+
+# Scripts
+scripts/
+
+# Config files (already have specific formatting)
+buildspec.yml
+next.config.js
+jest.config.js
+jest.setup.js
+prettier.config.js
+jsconfig.json
+eslint.config.js
+
+# Public assets
+public/
+
+# Lock files
+package-lock.json
+yarn.lock
+pnpm-lock.yaml
+
+# Generated types
+next-env.d.ts
