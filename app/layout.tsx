@@ -2,6 +2,9 @@ import "./globals.css";
 
 import type { Metadata } from "next";
 
+import Navigation from "@/components/Navigation";
+import Providers from "@/components/Providers";
+
 export const metadata: Metadata = {
   title: "Sovity EDC Manager",
   description: "Asset and Policy Management for Sovity EDC Connector",
@@ -21,7 +24,14 @@ export default function RootLayout({
         >
           Skip to main content
         </a>
-        {children}
+        <Providers>
+          <div className="min-h-screen bg-gray-50">
+            <Navigation />
+            <main id="main-content" className="container mx-auto px-4 py-8">
+              {children}
+            </main>
+          </div>
+        </Providers>
       </body>
     </html>
   );
