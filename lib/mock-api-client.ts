@@ -425,6 +425,16 @@ export const mockApiClient = {
 
     contracts = contracts.filter((c) => c["@id"] !== id);
   },
+
+  // ===== HEALTH CHECK =====
+
+  /**
+   * Health check - always returns true for mock API
+   */
+  async healthCheck(): Promise<boolean> {
+    await delay(100);
+    return true;
+  },
 };
 
 /**
