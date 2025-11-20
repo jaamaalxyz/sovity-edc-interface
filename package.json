@@ -17,7 +17,12 @@
     "test:e2e:ui": "playwright test --ui",
     "test:e2e:debug": "playwright test --debug",
     "test:e2e:report": "playwright show-report",
-    "test:e2e:codegen": "playwright codegen http://localhost:3000"
+    "test:e2e:codegen": "playwright codegen http://localhost:3000",
+    "docker:build": "docker build -t sovity-edc-interface .",
+    "docker:run": "docker run -d -p 3000:3000 --name edc-interface sovity-edc-interface",
+    "docker:stop": "docker stop edc-interface && docker rm edc-interface",
+    "docker:test": "./docker-test.sh",
+    "docker:clean": "docker rm -f edc-interface 2>/dev/null || true"
   },
   "dependencies": {
     "@hookform/resolvers": "^3.9.0",

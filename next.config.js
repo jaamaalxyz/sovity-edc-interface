@@ -1,8 +1,8 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
-  // Enable standalone output for Docker
   output: "standalone",
+  outputFileTracingRoot: undefined,
   async rewrites() {
     // Only add rewrites when using real API (not mock API)
     const useMockApi = process.env.NEXT_PUBLIC_USE_MOCK_API === "true";
