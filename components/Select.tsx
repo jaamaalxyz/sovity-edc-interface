@@ -1,8 +1,3 @@
-/**
- * Select Component
- * Reusable form select with label, error state, and grouped options support
- */
-
 import clsx from "clsx";
 import {
   forwardRef,

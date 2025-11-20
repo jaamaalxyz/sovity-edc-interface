@@ -1,8 +1,3 @@
-/**
- * Asset Card Skeleton Component
- * Loading skeleton for asset cards
- */
-
 import Card, { CardBody } from "./Card";
 import Skeleton from "./Skeleton";
 

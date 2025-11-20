@@ -1,8 +1,3 @@
-/**
- * Contract Card Component
- * Displays a contract definition with its associated policies and assets
- */
-
 "use client";
 
 import { FiTrash2 } from "react-icons/fi";

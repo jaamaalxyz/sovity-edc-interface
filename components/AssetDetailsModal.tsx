@@ -1,8 +1,3 @@
-/**
- * Asset Details Modal Component
- * Displays detailed information about an asset including associated contracts
- */
-
 "use client";
 
 import { useMemo } from "react";

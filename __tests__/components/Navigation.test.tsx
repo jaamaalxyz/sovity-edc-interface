@@ -163,9 +163,7 @@ describe("Navigation", () => {
       (usePathname as jest.Mock).mockReturnValue("/");
       const { container } = render(<Navigation />);
 
-      const icons = container.querySelectorAll(
-        'div[role="navigation"] svg'
-      );
+      const icons = container.querySelectorAll('div[role="navigation"] svg');
       icons.forEach((icon) => {
         expect(icon).toHaveAttribute("aria-hidden", "true");
       });
@@ -175,9 +173,7 @@ describe("Navigation", () => {
       (usePathname as jest.Mock).mockReturnValue("/");
       const { container } = render(<Navigation />);
 
-      const icons = container.querySelectorAll(
-        'div[role="navigation"] svg'
-      );
+      const icons = container.querySelectorAll('div[role="navigation"] svg');
       icons.forEach((icon) => {
         expect(icon).toHaveClass("size-5");
       });
@@ -311,9 +307,7 @@ describe("Navigation", () => {
       const { container } = render(<Navigation />);
 
       // Navigation bar
-      expect(
-        screen.getByLabelText("Main navigation")
-      ).toBeInTheDocument();
+      expect(screen.getByLabelText("Main navigation")).toBeInTheDocument();
 
       // Logo
       expect(screen.getByText("S")).toBeInTheDocument();
@@ -325,9 +319,7 @@ describe("Navigation", () => {
       expect(screen.getByText("Contracts")).toBeInTheDocument();
 
       // Icons
-      const icons = container.querySelectorAll(
-        'div[role="navigation"] svg'
-      );
+      const icons = container.querySelectorAll('div[role="navigation"] svg');
       expect(icons.length).toBe(3);
     });
 
@@ -343,9 +335,7 @@ describe("Navigation", () => {
         expect(screen.getByText("Policies")).toBeInTheDocument();
         expect(screen.getByText("Contracts")).toBeInTheDocument();
 
-        const icons = container.querySelectorAll(
-          'div[role="navigation"] svg'
-        );
+        const icons = container.querySelectorAll('div[role="navigation"] svg');
         expect(icons.length).toBe(3);
 
         unmount();

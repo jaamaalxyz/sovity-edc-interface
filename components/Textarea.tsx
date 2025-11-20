@@ -1,8 +1,3 @@
-/**
- * Textarea Component
- * Reusable form textarea with label and error state
- */
-
 import clsx from "clsx";
 import { forwardRef, TextareaHTMLAttributes, useId, useMemo } from "react";
 

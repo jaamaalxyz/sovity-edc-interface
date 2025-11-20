@@ -1,8 +1,3 @@
-/**
- * Asset Form Component
- * Form for creating and editing assets
- */
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";

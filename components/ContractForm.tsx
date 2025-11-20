@@ -1,8 +1,3 @@
-/**
- * Contract Form Component
- * Form for creating contract definitions
- */
-
 "use client";
 
 import { zodResolver } from "@hookform/resolvers/zod";

@@ -1,8 +1,3 @@
-/**
- * Skeleton Component
- * Base skeleton component for loading states
- */
-
 import clsx from "clsx";
 
 interface SkeletonProps {

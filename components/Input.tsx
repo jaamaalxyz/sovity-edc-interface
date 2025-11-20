@@ -1,8 +1,3 @@
-/**
- * Input Component
- * Reusable form input with label and error state
- */
-
 import clsx from "clsx";
 import { forwardRef, InputHTMLAttributes, useId, useMemo } from "react";
 

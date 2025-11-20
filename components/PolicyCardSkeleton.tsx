@@ -1,8 +1,3 @@
-/**
- * Policy Card Skeleton Component
- * Loading skeleton for policy cards
- */
-
 import Card, { CardBody } from "./Card";
 import Skeleton from "./Skeleton";
 

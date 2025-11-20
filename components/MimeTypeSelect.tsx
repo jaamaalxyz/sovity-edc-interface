@@ -1,8 +1,3 @@
-/**
- * MIME Type Select Component
- * Specialized select for choosing MIME types with custom input option
- */
-
 "use client";
 
 import { forwardRef, useEffect, useState } from "react";

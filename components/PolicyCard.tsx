@@ -1,8 +1,3 @@
-/**
- * Policy Card Component
- * Displays a single policy in a card format
- */
-
 import { FiShield, FiTrash2 } from "react-icons/fi";
 
 import type { PolicyDefinition } from "@/types/policy";

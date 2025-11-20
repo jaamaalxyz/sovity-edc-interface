@@ -1,8 +1,3 @@
-/**
- * Navigation Component
- * Main navigation bar
- */
-
 "use client";
 
 import clsx from "clsx";

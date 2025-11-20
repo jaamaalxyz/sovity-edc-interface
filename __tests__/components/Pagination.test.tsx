@@ -478,7 +478,9 @@ describe("Pagination", () => {
         />
       );
 
-      const previousButton = screen.getAllByText("Previous")[0].closest("button");
+      const previousButton = screen
+        .getAllByText("Previous")[0]
+        .closest("button");
       expect(previousButton).toBeDisabled();
     });
 
@@ -508,7 +510,9 @@ describe("Pagination", () => {
         />
       );
 
-      const previousButton = screen.getAllByText("Previous")[0].closest("button");
+      const previousButton = screen
+        .getAllByText("Previous")[0]
+        .closest("button");
       if (previousButton) {
         fireEvent.click(previousButton);
         expect(mockOnPageChange).toHaveBeenCalledWith(2);

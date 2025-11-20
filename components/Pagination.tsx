@@ -1,8 +1,3 @@
-/**
- * Pagination Component
- * Displays pagination controls for navigating through pages
- */
-
 import clsx from "clsx";
 import { FiChevronLeft, FiChevronRight } from "react-icons/fi";
 

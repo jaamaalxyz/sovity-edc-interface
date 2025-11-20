@@ -1,8 +1,3 @@
-/**
- * Error Message Component
- * Displays error messages in a consistent format
- */
-
 import { FiAlertCircle } from "react-icons/fi";
 
 interface ErrorMessageProps {

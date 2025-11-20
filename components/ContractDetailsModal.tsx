@@ -1,8 +1,3 @@
-/**
- * Contract Details Modal Component
- * Displays detailed information about a contract definition
- */
-
 "use client";
 
 import { MdClose, MdLink, MdPolicy } from "react-icons/md";

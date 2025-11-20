@@ -1,8 +1,3 @@
-/**
- * Modal Component
- * Reusable modal dialog
- */
-
 import { ReactNode, useEffect, useId, useRef } from "react";
 import { FiX } from "react-icons/fi";
 

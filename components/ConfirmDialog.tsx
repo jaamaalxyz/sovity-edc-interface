@@ -1,8 +1,3 @@
-/**
- * Confirm Dialog Component
- * Reusable confirmation dialog for destructive actions
- */
-
 import Button from "./Button";
 import Modal from "./Modal";
 

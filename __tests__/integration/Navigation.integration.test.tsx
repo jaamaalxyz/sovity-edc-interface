@@ -25,9 +25,7 @@ describe("Navigation Integration Tests", () => {
       renderWithQueryClient(<Navigation />);
 
       expect(screen.getByText("Sovity EDC")).toBeInTheDocument();
-      expect(
-        screen.getByRole("link", { name: /assets/i })
-      ).toBeInTheDocument();
+      expect(screen.getByRole("link", { name: /assets/i })).toBeInTheDocument();
       expect(
         screen.getByRole("link", { name: /policies/i })
       ).toBeInTheDocument();

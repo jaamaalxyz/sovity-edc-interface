@@ -1,8 +1,3 @@
-/**
- * Contract Card Skeleton Component
- * Loading state for contract cards
- */
-
 import Card, { CardBody, CardHeader } from "./Card";
 import Skeleton from "./Skeleton";
 

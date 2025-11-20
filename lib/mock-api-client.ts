@@ -31,10 +31,16 @@ const delay = (ms: number = 300) =>
   new Promise((resolve) => setTimeout(resolve, ms));
 
 /**
- * Simulate random failures (5% chance)
+ * Simulate random failures (configurable via environment)
+ * Set NEXT_PUBLIC_MOCK_ERROR_RATE to control error rate (0-1)
+ * Default: 0 (disabled) for better development experience
  */
+const MOCK_ERROR_RATE = parseFloat(
+  process.env.NEXT_PUBLIC_MOCK_ERROR_RATE || "0"
+);
+
 const maybeThrowError = () => {
-  if (Math.random() < 0.05) {
+  if (MOCK_ERROR_RATE > 0 && Math.random() < MOCK_ERROR_RATE) {
     throw new Error("Simulated network error");
   }
 };

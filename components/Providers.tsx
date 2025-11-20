@@ -1,8 +1,3 @@
-/**
- * Providers Component
- * Wraps the app with necessary providers (React Query, Error Boundary, etc.)
- */
-
 "use client";
 
 import { QueryClientProvider } from "@tanstack/react-query";

@@ -1,8 +1,3 @@
-/**
- * Policy Details Modal Component
- * Displays detailed information about a policy
- */
-
 import type {
   Duty,
   Permission,

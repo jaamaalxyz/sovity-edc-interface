@@ -1,9 +1,3 @@
-/**
- * Error Boundary Component
- * Catches JavaScript errors anywhere in the child component tree
- * and displays a fallback UI instead of crashing the entire app
- */
-
 "use client";
 
 import React, { Component, ReactNode } from "react";

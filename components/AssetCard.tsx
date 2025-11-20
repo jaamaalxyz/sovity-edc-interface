@@ -1,8 +1,3 @@
-/**
- * Asset Card Component
- * Displays a single asset in a card format
- */
-
 import { FiEdit2, FiFileText, FiTrash2 } from "react-icons/fi";
 
 import type { Asset } from "@/types/asset";

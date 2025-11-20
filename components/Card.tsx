@@ -1,8 +1,3 @@
-/**
- * Card Component
- * Reusable card container
- */
-
 import clsx from "clsx";
 import { ReactNode } from "react";
 
