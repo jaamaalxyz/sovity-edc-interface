@@ -2,6 +2,8 @@
 
 Modern web interface for managing data assets and policies in the Eclipse Dataspace Components ecosystem.
 
+**Live demo**: [https://sovity-edc-interface.pages.dev/](https://sovity-edc-interface.pages.dev/)
+
 ## Quick Start
 
 ```bash
@@ -12,10 +14,10 @@ No backend required—mock API enabled by default with sample data.
 
 ## Core Features
 
-**Assets** • Full CRUD with metadata, search, and contract associations
-**Policies** • 15+ templates across 6 categories (GDPR, Time-Based, RBAC, etc.)
-**Contracts** • Link assets to policies with flexible selectors
-**Developer Ready** • Complete mock API, TypeScript, comprehensive tests
+- **Assets** • Full CRUD with metadata, search, and contract associations
+- **Policies** • 15+ templates across 6 categories (GDPR, Time-Based, RBAC, etc.)
+- **Contracts** • Link assets to policies with flexible selectors
+- **Developer Ready** • Complete mock API, TypeScript, comprehensive tests
 
 ## Stack
 
@@ -55,14 +57,14 @@ NEXT_PUBLIC_API_KEY=your-api-key
 
 ### Environment Variables
 
-| Variable | Description | Default | Required |
-|----------|-------------|---------|----------|
-| `BUILD_STATIC_EXPORT` | Build mode: `true` for static export (Cloudflare Pages), `false` for standalone (Docker) | `false` | Build-time |
-| `NEXT_PUBLIC_USE_MOCK_API` | Enable mock API (no backend needed) | `true` | No |
-| `NEXT_PUBLIC_MOCK_ERROR_RATE` | Simulate API errors (0-1) | `0` | No |
-| `NEXT_PUBLIC_API_BASE_URL` | EDC backend URL | - | When mock disabled |
-| `NEXT_PUBLIC_MANAGEMENT_API_PATH` | Management API path | `/api/management` | When mock disabled |
-| `NEXT_PUBLIC_API_KEY` | EDC API key | - | When mock disabled |
+| Variable                          | Description                                                                              | Default           | Required           |
+| --------------------------------- | ---------------------------------------------------------------------------------------- | ----------------- | ------------------ |
+| `BUILD_STATIC_EXPORT`             | Build mode: `true` for static export (Cloudflare Pages), `false` for standalone (Docker) | `false`           | Build-time         |
+| `NEXT_PUBLIC_USE_MOCK_API`        | Enable mock API (no backend needed)                                                      | `true`            | No                 |
+| `NEXT_PUBLIC_MOCK_ERROR_RATE`     | Simulate API errors (0-1)                                                                | `0`               | No                 |
+| `NEXT_PUBLIC_API_BASE_URL`        | EDC backend URL                                                                          | -                 | When mock disabled |
+| `NEXT_PUBLIC_MANAGEMENT_API_PATH` | Management API path                                                                      | `/api/management` | When mock disabled |
+| `NEXT_PUBLIC_API_KEY`             | EDC API key                                                                              | -                 | When mock disabled |
 
 See [MOCK_API.md](./MOCK_API.md) for mock API details and [DOCKER.md](./DOCKER.md) for Docker deployment.
 
@@ -94,6 +96,7 @@ The project uses static export for Cloudflare Pages deployment:
    - Create PR → Preview deployment with comment
 
 The GitHub Actions workflow automatically builds with:
+
 - `BUILD_STATIC_EXPORT=true` - Static export mode
 - `NEXT_PUBLIC_USE_MOCK_API=true` - Mock API enabled
 - Deploys from `out/` directory
