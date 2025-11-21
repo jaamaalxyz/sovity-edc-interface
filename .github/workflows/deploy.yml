@@ -86,9 +86,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build for production
+      - name: Build for production (static export)
         run: npm run build
         env:
+          BUILD_STATIC_EXPORT: true
           NEXT_PUBLIC_USE_MOCK_API: true
           NEXT_PUBLIC_MOCK_ERROR_RATE: 0
 
@@ -98,7 +99,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: sovity-edc-interface
-          directory: .next
+          directory: out
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: "3"
 
@@ -123,9 +124,10 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Build for preview
+      - name: Build for preview (static export)
         run: npm run build
         env:
+          BUILD_STATIC_EXPORT: true
           NEXT_PUBLIC_USE_MOCK_API: true
           NEXT_PUBLIC_MOCK_ERROR_RATE: 0
 
@@ -136,7 +138,7 @@ jobs:
           apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
           accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
           projectName: sovity-edc-interface
-          directory: .next
+          directory: out
           gitHubToken: ${{ secrets.GITHUB_TOKEN }}
           wranglerVersion: "3"
 

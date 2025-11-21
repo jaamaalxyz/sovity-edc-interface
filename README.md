@@ -46,11 +46,23 @@ cp .env.example .env.local
 Edit `.env.local`:
 
 ```env
+BUILD_STATIC_EXPORT=false              # Use standalone mode for Docker/server
 NEXT_PUBLIC_USE_MOCK_API=false
 NEXT_PUBLIC_API_BASE_URL=http://localhost:11002
 NEXT_PUBLIC_MANAGEMENT_API_PATH=/api/management
 NEXT_PUBLIC_API_KEY=your-api-key
 ```
+
+### Environment Variables
+
+| Variable | Description | Default | Required |
+|----------|-------------|---------|----------|
+| `BUILD_STATIC_EXPORT` | Build mode: `true` for static export (Cloudflare Pages), `false` for standalone (Docker) | `false` | Build-time |
+| `NEXT_PUBLIC_USE_MOCK_API` | Enable mock API (no backend needed) | `true` | No |
+| `NEXT_PUBLIC_MOCK_ERROR_RATE` | Simulate API errors (0-1) | `0` | No |
+| `NEXT_PUBLIC_API_BASE_URL` | EDC backend URL | - | When mock disabled |
+| `NEXT_PUBLIC_MANAGEMENT_API_PATH` | Management API path | `/api/management` | When mock disabled |
+| `NEXT_PUBLIC_API_KEY` | EDC API key | - | When mock disabled |
 
 See [MOCK_API.md](./MOCK_API.md) for mock API details and [DOCKER.md](./DOCKER.md) for Docker deployment.
 
@@ -65,25 +77,41 @@ npm run test:e2e:ui         # Interactive E2E mode
 
 ## Deployment
 
-### Cloudflare Pages (Recommended)
+### Cloudflare Pages (Recommended for Mock API)
 
-The project includes GitHub Actions workflow for automatic deployment:
+The project uses static export for Cloudflare Pages deployment:
 
-1. **Set GitHub Secrets:**
+1. **Create Cloudflare Pages Project:**
+   - Login to [Cloudflare Dashboard](https://dash.cloudflare.com/)
+   - Create a Pages project named `sovity-edc-interface`
+
+2. **Set GitHub Secrets:**
    - `CLOUDFLARE_API_TOKEN` - Your Cloudflare API token
    - `CLOUDFLARE_ACCOUNT_ID` - Your Cloudflare account ID
 
-2. **Push to main branch** - Auto-deploys to production
-3. **Create PR** - Auto-deploys preview with comment
+3. **Automatic Deployment:**
+   - Push to `main` branch → Production deployment
+   - Create PR → Preview deployment with comment
 
-### Docker
+The GitHub Actions workflow automatically builds with:
+- `BUILD_STATIC_EXPORT=true` - Static export mode
+- `NEXT_PUBLIC_USE_MOCK_API=true` - Mock API enabled
+- Deploys from `out/` directory
+
+### Docker (For Real API Integration)
+
+For production environments with real EDC backend:
 
 ```bash
-docker-compose up -d        # Using docker-compose
-# or
+# Local build and run
 docker build -t sovity-edc-interface .
 docker run -p 3000:3000 sovity-edc-interface
+
+# Or using docker-compose
+docker-compose up -d
 ```
+
+**Note:** Docker deployment uses `output: "standalone"` mode (set `BUILD_STATIC_EXPORT=false`)
 
 ## Project Structure
 
